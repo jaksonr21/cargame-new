@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Respawn : MonoBehaviour
+public class Respawn2 : MonoBehaviour
 {
-	
-	GameObject body;
+    GameObject body;
 	Vector3 startPos;
 	GameObject wheel_b;
 	GameObject wheel_f;
-	
-	
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,26 +24,10 @@ public class Respawn : MonoBehaviour
     {
         
     }
-	
-	
-	private void OnCollisionEnter2D(Collision2D c)
-	{
-		if (c.gameObject.tag == "Track")
-		{
-			body.transform.position = startPos;
-			body.transform.rotation = Quaternion.identity;
-			body.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-			body.GetComponent<Rigidbody2D>().angularVelocity = 0;
-			
-			wheel_f.GetComponent<Rigidbody2D>().angularVelocity = 0;
-			wheel_f.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-			
-			wheel_b.GetComponent<Rigidbody2D>().angularVelocity = 0;
-			wheel_b.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-			
-		}
 
-		if (c.gameObject.tag == "Spawn")
+    private void OnCollisionEnter2D(Collision2D c)
+    {
+        if (c.gameObject.tag == "Spawn")
         {
             body.transform.position = startPos;
 			body.transform.rotation = Quaternion.identity;
@@ -57,9 +40,8 @@ public class Respawn : MonoBehaviour
 			wheel_b.GetComponent<Rigidbody2D>().angularVelocity = 0;
 			wheel_b.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         }
-	}
-	
-	private void OnTriggerEnter2D(Collider2D c)
+    }
+    private void OnTriggerEnter2D(Collider2D c)
 	{
 		if (c.gameObject.tag == "Checkpoint")
 		{
@@ -67,5 +49,5 @@ public class Respawn : MonoBehaviour
 		}
 		
 	}
-	
+
 }

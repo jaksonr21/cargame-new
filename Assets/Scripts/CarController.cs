@@ -43,14 +43,8 @@ public class CarController : MonoBehaviour
             Wheel_B.AddTorque(power);
 			Body.AddTorque(bodyPower);
         }
-    }
-     
-    private void OnCollisionEnter2D (Collision2D c)
-    {
-      
-
-        if (c.gameObject.tag == "Spawn")
-        {
+         if (Input.GetKey("r"))
+            {
             Body.transform.position = startPos;
 			Body.transform.rotation = Quaternion.identity;
 			Body.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
@@ -61,8 +55,10 @@ public class CarController : MonoBehaviour
 			
 			Wheel_B.GetComponent<Rigidbody2D>().angularVelocity = 0;
 			Wheel_B.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-        }
+             }
+             
     }
+     
 
     private bool IsGrounded()
     {
