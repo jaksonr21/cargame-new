@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour
     {
 
         transform.position = new Vector3(Body.transform.position.x, camHeight, -10);
-
+        transform.position = new Vector3(Body.transform.position.y, camHeight, 0);
 
 
 
