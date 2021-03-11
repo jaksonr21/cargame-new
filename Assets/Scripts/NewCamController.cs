@@ -17,7 +17,7 @@ public class NewCamController : MonoBehaviour
      private Vector3 targetOffset = new Vector3(0,0,0);
  
      // Update is called once per frame
-     void Update()
+     void FixedUpdate()
      {
          //Makes camera move ahead of player
          if (target.transform.position.y > redLineY)
